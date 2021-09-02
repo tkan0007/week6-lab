@@ -1,0 +1,69 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>List of doctor</h1></br>
+        <h2>
+            <a href="/addDoctor" class="btn btn-primary btn-lg">Add new doctor</a>
+            <a href="/addPatient" class="btn btn-primary btn-lg">Add new patient</a>
+            <a href="/getDoctors" class="btn btn-primary btn-lg">List doctors</a>
+            <a href="/getPatients" class="btn btn-primary btn-lg">List patients</a>
+            <a href="/deletePatient" class="btn btn-primary btn-lg">Delete Patient</a>
+            <a href="/updateDoctor" class="btn btn-primary btn-lg">Update doctor</a>
+        </h2>
+    </header>
+
+    <p class="h2">List of Doctor</p>
+    <div class="container">
+        <table class = "table table-striped">
+            <tr>
+                <th style="text-align: center;">DoctorID</th>
+                <th style="text-align: center;">First Name</th>
+                <th style="text-align: center;">Last Name</th>
+                <th style="text-align: center;">Date of Birth</th>
+                <th style="text-align: center;">State</th>
+                <th style="text-align: center;">Suburb</th>
+                <th style="text-align: center;">Street</th>
+                <th style="text-align: center;">Unit</th>
+                <th style="text-align: center;">Number of Patients</th>
+            </tr>
+            <% for ( let i =0; i< doctorDB.length;i++){ %>
+                <tr>
+                    <td style="text-align: center;">
+                        <%= doctorDB[i]._id%>
+                    </td>
+                    <td style="text-align: center;">
+                        <%= doctorDB[i].name.firstName%>
+                    </td>
+                    <td style="text-align: center;">
+                        <%= doctorDB[i].name.lastName%>
+                    </td>
+                    <td style="text-align: center;">
+                        <%= doctorDB[i].date%>
+                    </td>
+                    <td style="text-align: center;">
+                        <%= doctorDB[i].address.state%>
+                    </td>
+                    <td style="text-align: center;">
+                        <%= doctorDB[i].address.suburb%>
+                    </td>
+                    <td style="text-align: center;">
+                        <%= doctorDB[i].address.street%>
+                    </td>
+                    <td style="text-align: center;">
+                        <%= doctorDB[i].address.unit%>
+                    </td>
+                    <td style="text-align: center;">
+                        <%= doctorDB[i].numPatient%>
+                    </td>
+                </tr>
+                <% }%>
+        </table>
+    </div>
+</body>
+</html>
